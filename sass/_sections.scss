@@ -1,0 +1,14 @@
+@use 'variables' as v;
+
+body{
+    background-color: v.$color-body;
+}
+.section{
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1400px;
+    padding: 2.5rem 2rem;
+    margin: auto;
+    transition: .3s linear;
+    opacity: 1;
+}

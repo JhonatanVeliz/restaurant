@@ -1,0 +1,58 @@
+@use 'variables' as v;
+
+.segunda{
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+    &__plus{
+        display: flex;
+        margin: 7rem auto auto auto;
+        justify-content: center;
+        gap: 1.5rem;
+        &__btn{
+            padding: 1.5rem;
+            background-color: v.$color-black;
+            font-family: v.$font-secundary;
+            color: v.$color-white;
+            font-size: 2rem;
+            box-shadow: 0px 0px .5rem v.$color-black;
+        }
+    }
+}
+.card{
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 1rem v.$color-black;
+    display: flex;
+    flex-direction: column;
+    &__img{
+        height: 35rem;
+    }
+    &__info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: v.$font-primary;
+        font-weight: 200;
+        font-size: 1.8rem;
+        line-height: 1.5;
+    }
+    &__cantidad{
+        padding: 1rem 2rem;
+        background-color: v.$color-blue;
+        color: v.$color-white;
+    }
+    &__title{
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+    }
+    &__btn{
+        padding: 2rem;
+        background-color: v.$color-black;
+        color: v.$color-white;
+        font-family: v.$font-secundary;
+    }
+}

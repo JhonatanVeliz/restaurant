@@ -1,0 +1,99 @@
+@use 'variables' as v;
+
+.tercera{
+    min-height: auto;
+    &__grid{
+        display: flex;
+        justify-content: space-between;
+        &__compras{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        &__total{
+            padding: 3rem 5rem;
+            background-color: v.$color-black;
+            color: v.$color-white;
+            font-family: v.$font-primary;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            &__title{
+                font-size: 4rem;
+                font-weight: 400;
+                padding-bottom: 2rem;
+            }
+            &__precio{
+                font-size: 2.3rem;
+                padding-bottom: 2rem;
+            }
+            &__boton{
+                padding: 1.5rem 6rem;
+                font-size: 2.5rem;
+                background-color: v.$color-green;
+                border-radius: 1rem;
+                color: v.$color-white;
+                &:hover{
+                    opacity: .9;
+                }
+            }
+        }
+    }
+}
+.compra{
+    width: 30rem;
+    max-height: 13rem;
+    background-color: v.$color-black;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    color: v.$color-white;
+    font-family: v.$font-secundary;
+    &__img{
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    &__info{
+        margin-left: 1rem;
+        flex-grow: 1;
+        &__texts{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            &__cantidad{
+                font-size: 2rem;
+                padding: .3rem .7rem;
+                background-color: v.$color-green;
+                border-radius: .5rem;
+            }
+        }
+        &__botones{
+            display: flex;
+            gap: .5rem;
+            &__boton{
+                padding: .5rem .7rem;
+                color: v.$color-white;
+                border-radius: .5rem;
+                font-size: 2rem;
+                &--mas{
+                    background-color: v.$color-blue;
+                }
+                &--menos{
+                    background-color: v.$color-orange;
+                }
+                &--eliminar{
+                    background-color: v.$color-red;
+                }
+                &:hover{
+                    opacity: .9;
+                }
+            }
+        }
+    }
+}

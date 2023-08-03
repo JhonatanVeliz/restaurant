@@ -1,0 +1,19 @@
+@use 'variables' as v;
+
+.delivery{
+    padding: 1.5rem 3rem;
+    background-color: v.$color-violet;
+    min-height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__img{
+        max-width: 20rem;
+    }
+    &__title{
+        padding: 0;
+        margin: 0;
+        color: v.$color-white;
+        font-style: italic;
+    }
+}

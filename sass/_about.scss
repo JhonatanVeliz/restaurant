@@ -1,0 +1,15 @@
+@use 'variables' as v;
+
+.about{
+    background: linear-gradient(90deg, rgba(35,36,36,1) 40%, rgba(19,20,20,1) 79%);
+    min-height: auto;
+    padding: 3rem 0;
+    &__section{
+        min-height: auto;
+        color: v.$color-white;
+    }
+    &__title{
+        width: 100%;
+        text-align: center;
+    }
+}

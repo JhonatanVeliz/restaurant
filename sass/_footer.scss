@@ -1,0 +1,14 @@
+@use 'variables' as v;
+
+.footer{
+    background-color: v.$color-gray;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    &__grid{
+        font-family: v.$font-primary;
+        min-height: auto;
+        color: v.$color-white;
+        font-size: 2rem;
+        font-weight: 200;
+    }
+}

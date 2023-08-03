@@ -1,0 +1,70 @@
+@use 'variables' as v;
+
+.platillos{
+    background-color: v.$color-white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    margin-top: -150%;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s ease, margin-top .1s ease;
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        font-family: v.$font-primary;
+        &__regresar{
+            background-color: v.$color-black;
+            color: v.$color-white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            font-size: 1.8rem;
+            max-height: 7rem;
+        }
+    }
+    &__carrito{
+        position: relative;
+        z-index: 20;
+        &__boton{
+            position: relative;
+            &__item{
+                background-color: transparent;
+                max-width: 5rem;
+            }
+            &__cantidad{
+                display: none;
+                visibility: hidden;
+                &--active{
+                    visibility: visible;
+                    display: grid;
+                    place-content: center;
+                    position: absolute;
+                    top: -.5rem;
+                    right: -.5rem;
+                    background-color: v.$color-green;
+                    color: v.$color-white;
+                    padding: .5rem;
+                    border-radius: 1rem;
+                    font-size: 1.3rem;
+                }
+            }
+        }
+        &__productos{
+            background-color: v.$color-black;
+            position: absolute;
+            border-radius: .5rem;
+            padding: 1.5rem;
+            top: 5rem;
+            right: 1rem;
+            display: none;
+        }
+    }
+    &__grid{
+        min-height: 120vh;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+}

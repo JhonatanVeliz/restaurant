@@ -1,0 +1,17 @@
+@use 'variables' as v;
+
+.btn{
+    border: none;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.btn-comprar{
+    padding: 1rem;
+    background-color: v.$color-green;
+    color: v.$color-white;
+    border-radius: .5rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}

@@ -1,0 +1,16 @@
+.delete-content{
+    opacity: 0;
+    z-index: -1;
+    display: none;
+    margin: 0;
+    padding: 0;
+    height: 0;
+}
+.add-content{
+    opacity: 1;
+    margin: 0 auto auto auto;
+    z-index: 20;
+}
+.abrir-carrito{
+    display: inline-block;
+}
