@@ -27,43 +27,21 @@
     <section class="platillos" id="nuevo-contenido">
 
         <div>
+
             <header class="platillos__header">
     
-                <button class="btn platillos__header__regresar hvr-backward btn-mas-comidas">Regresar</button>
+                <button class="btn platillos__header__regresar hvr-backward btn-mas-comidas" id="regresar">Regresar</button>
     
                 <div class="platillos__carrito">
     
                     <div class="platillos__carrito__boton" id="btnCarrito">
-                        <span class="platillos__carrito__boton__cantidad--active">1</span>
+                        <span class="platillos__carrito__boton__cantidad" id="numero-de-productos">0</span>
                         <button class="btn platillos__carrito__boton__item"><img src="./assets/icons/cart.png" alt="carrito"></button>
                     </div>
     
-                    <ul class="platillos__carrito__productos" id="carrito">
+                    <ul class="platillos__carrito__productos contenedor-compras" id="carrito">
     
-                        <li class="compra" data-id="123"data-salida="11">
-    
-                            <img class="compra__img" src="./assets/platillo-1.png" alt="comida">
-        
-                            <div class="compra__info">
-        
-                                <div class="compra__info__texts">
-                                    <span class="compra__info__texts__name">Carne</span>
-                                    <span class="compra__info__texts__cantidad">12</span>
-                                </div>
-        
-                                <div class="compra__info__botones">
-                                    <button
-                                        class="btn compra__info__botones__boton compra__info__botones__boton--mas">+1</button>
-                                    <button
-                                        class="btn compra__info__botones__boton compra__info__botones__boton--menos">-1</button>
-                                    <button
-                                        class="btn compra__info__botones__boton compra__info__botones__boton--eliminar">Eliminar</button>
-                                </div>
-        
-                            </div>
-        
-                        </li>
-    
+                        <span class="total-precio">0</span>
                         <a href="#pedido" class="btn btn-comprar">Comprar</a>
     
                     </ul>
@@ -71,338 +49,186 @@
     
             </header>
     
-            <div class="section platillos__grid">
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/platillo-1.png" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/platillo-2.png" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/platillo-3.png" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/platillo-4.png" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/platillo-5.png" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/platillo-6.png" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/platillo-7.png" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/platillo-8.png" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/bebida-1.jpg" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/bebida-2.jpg" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/platillo-1.png" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
-    
-                <div class="card">
-                    <img class="card__img" src="./assets/platillo-1.png" alt="comida">
-                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                            $10.00</span></p>
-                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-                </div>
+            <div class="section platillos__grid" id="platillos-render">
     
             </div>
         </div>
 
     </section>
 
-    <header class="principal contenido">
+    <div class="contenido">
 
-        <nav class="principal__nav">
-
-            <div class="principal__nav__boton">
-                <div class="principal__nav__boton__line"></div>
-                <div class="principal__nav__boton__line"></div>
-                <div class="principal__nav__boton__line"></div>
+        <header class="principal">
+    
+            <nav class="principal__nav">
+    
+                <div class="principal__nav__boton">
+                    <div class="principal__nav__boton__line"></div>
+                    <div class="principal__nav__boton__line"></div>
+                    <div class="principal__nav__boton__line"></div>
+                </div>
+    
+                <div class="principal__nav__links">
+    
+                    <a href="#" class="principal__nav__links__link">Inicio</a>
+                    <a href="#" class="principal__nav__links__link">Dos</a>
+                    <a href="#" class="principal__nav__links__link">Tres</a>
+    
+                </div>
+            </nav>
+    
+            <div class="principal__grid">
+    
+                <div class="principal__content">
+                    <h1 class="principal__title">Bienvenido a <span class="principal__name">Sabor y Sazón</span> Restaurant
+                    </h1>
+    
+                    <p class="principal__paragraph">" El mejor lugar para saborear y compartir con toda tu
+                        familia "</p>
+                    <p class="principal__paragraph">Disfruta de los mejores platillos cocinados por chefs
+                        experimentados</p>
+                    <p class="principal__paragraph principal__paragraph--italic">Porque Sabor y Sazón es tu mejor opción !
+                    </p>
+    
+                    <div class="principal__botones">
+                        <a href="#about" class="hvr-shutter-out-horizontal principal__botones__boton">ABOUT</a>
+                        <a href="#menu" class="hvr-shutter-out-horizontal principal__botones__boton">MENÚ</a>
+                    </div>
+                </div>
+    
             </div>
-
-            <div class="principal__nav__links">
-
-                <a href="#" class="principal__nav__links__link">Inicio</a>
-                <a href="#" class="principal__nav__links__link">Dos</a>
-                <a href="#" class="principal__nav__links__link">Tres</a>
-
-            </div>
-        </nav>
-
-        <div class="principal__grid">
-
-            <div class="principal__content">
-                <h1 class="principal__title">Bienvenido a <span class="principal__name">Sabor y Sazón</span> Restaurant
-                </h1>
-
-                <p class="principal__paragraph">" El mejor lugar para saborear y compartir con toda tu
-                    familia "</p>
-                <p class="principal__paragraph">Disfruta de los mejores platillos cocinados por chefs
-                    experimentados</p>
-                <p class="principal__paragraph principal__paragraph--italic">Porque Sabor y Sazón es tu mejor opción !
+    
+        </header>
+    
+        <section class="about" id="about">
+    
+            <div class="section about__section">
+    
+                <h2 class="title about__title" data-aos="fade-up">¿ Quienes Somos ?</h2>
+    
+                <p class="paragraph" data-aos="fade-up">
+                    <span class="principal__name">"Sabor y Sazón":</span> Un restaurante con más de dos décadas de historia,
+                    fundado en 1998, que ofrece una exquisita cocina casera con sabores auténticos y únicos. Su ambiente
+                    cálido y servicio amable brindan una experiencia gastronómica inolvidable para disfrutar en familia o
+                    con amigos.
                 </p>
-
-                <div class="principal__botones">
-                    <a href="#about" class="hvr-shutter-out-horizontal principal__botones__boton">ABOUT</a>
-                    <a href="#menu" class="hvr-shutter-out-horizontal principal__botones__boton">MENÚ</a>
+    
+            </div>
+    
+        </section>
+    
+        <section class="section segunda" id="menu">
+    
+            <h2 class="title title__border-violet segunda__title" data-aos="fade-right">Platillos</h2>
+    
+            <div class="segunda__grid">
+    
+                <div class="card" data-aos="fade-right">
+                    <img class="card__img" src="./assets/platillo-1.png" alt="comida">
+                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
+                            $25</span></p>
+                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
                 </div>
-            </div>
-
-        </div>
-
-    </header>
-
-    <section class="about contenido" id="about">
-
-        <div class="section about__section">
-
-            <h2 class="title about__title" data-aos="fade-up">¿ Quienes Somos ?</h2>
-
-            <p class="paragraph" data-aos="fade-up">
-                <span class="principal__name">"Sabor y Sazón":</span> Un restaurante con más de dos décadas de historia,
-                fundado en 1998, que ofrece una exquisita cocina casera con sabores auténticos y únicos. Su ambiente
-                cálido y servicio amable brindan una experiencia gastronómica inolvidable para disfrutar en familia o
-                con amigos.
-            </p>
-
-        </div>
-
-    </section>
-
-    <section class="section segunda contenido" id="menu">
-
-        <h2 class="title title__border-violet segunda__title" data-aos="fade-right">Platillos</h2>
-
-        <div class="segunda__grid">
-
-            <div class="card" data-aos="fade-right">
-                <img class="card__img" src="./assets/platillo-1.png" alt="comida">
-                <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                        $10.00</span></p>
-                <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-            </div>
-
-            <div class="card" data-aos="fade-right">
-                <img class="card__img" src="./assets/platillo-2.png" alt="comida">
-                <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                        $10.00</span></p>
-                <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-            </div>
-
-            <div class="card" data-aos="fade-right">
-                <img class="card__img" src="./assets/bebida-2.jpg" alt="comida">
-                <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                        $10.00</span></p>
-                <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-            </div>
-
-            <div class="card" data-aos="fade-right">
-                <img class="card__img" src="./assets/platillo-4.png" alt="comida">
-                <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Smashed Avo
-                        $10.00</span></p>
-                <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
-            </div>
-
-        </div>
-
-        <div class="segunda__plus">
-            <button class="hvr-rotate btn segunda__plus__btn btn-mas-comidas">Más Comidas</button>
-        </div>
-
-    </section>
-
-    <section class="section delivery contenido" data-aos="fade-right">
-        <img class="delivery__img" src="./assets/delivery.png" alt="entrega a domicilio">
-        <h3 class="title delivery__title">¡ Entregas a Domicilio a toda la ciudad !</h3>
-    </section>
-
-    <section class="section tercera contenido" data-aos="fade-down" id="pedido">
-
-        <h2 class="title title__border-blue">Pedidos</h2>
-
-        <article class="tercera__grid">
-
-
-            <div class="tercera__grid__compras">
-
-                <div class="compra">
-
-                    <img class="compra__img" src="./assets/platillo-1.png" alt="comida">
-
-                    <div class="compra__info">
-
-                        <div class="compra__info__texts">
-                            <span class="compra__info__texts__name">Carne</span>
-                            <span class="compra__info__texts__cantidad">12</span>
-                        </div>
-
-                        <div class="compra__info__botones">
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--mas">+1</button>
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--menos">-1</button>
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--eliminar">Eliminar</button>
-                        </div>
-
-                    </div>
-
+    
+                <div class="card" data-aos="fade-right">
+                    <img class="card__img" src="./assets/platillo-7.png" alt="comida">
+                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Huevos Ranchero $25</span></p>
+                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
                 </div>
-
-                <div class="compra">
-
-                    <img class="compra__img" src="./assets/platillo-1.png" alt="comida">
-
-                    <div class="compra__info">
-
-                        <div class="compra__info__texts">
-                            <span class="compra__info__texts__name">Carne</span>
-                            <span class="compra__info__texts__cantidad">12</span>
-                        </div>
-
-                        <div class="compra__info__botones">
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--mas">+1</button>
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--menos">-1</button>
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--eliminar">Eliminar</button>
-                        </div>
-
-                    </div>
-
+    
+                <div class="card" data-aos="fade-right">
+                    <img class="card__img" src="./assets/bebida-2.jpg" alt="comida">
+                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Sumo de Frutas
+                            $10</span></p>
+                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
                 </div>
-
-                <div class="compra">
-
-                    <img class="compra__img" src="./assets/platillo-1.png" alt="comida">
-
-                    <div class="compra__info">
-
-                        <div class="compra__info__texts">
-                            <span class="compra__info__texts__name">Carne</span>
-                            <span class="compra__info__texts__cantidad">12</span>
-                        </div>
-
-                        <div class="compra__info__botones">
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--mas">+1</button>
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--menos">-1</button>
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--eliminar">Eliminar</button>
-                        </div>
-
-                    </div>
-
+    
+                <div class="card" data-aos="fade-right">
+                    <img class="card__img" src="./assets/platillo-4.png" alt="comida">
+                    <p class="card__info"><span class="card__cantidad">0</span> <span class="card__title">Breakkie Roll
+                            $25</span></p>
+                    <button class="btn card__btn hvr-bounce-to-right">Agregar</button>
                 </div>
-
-                <div class="compra">
-
-                    <img class="compra__img" src="./assets/platillo-1.png" alt="comida">
-
-                    <div class="compra__info">
-
-                        <div class="compra__info__texts">
-                            <span class="compra__info__texts__name">Carne</span>
-                            <span class="compra__info__texts__cantidad">12</span>
-                        </div>
-
-                        <div class="compra__info__botones">
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--mas">+1</button>
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--menos">-1</button>
-                            <button
-                                class="btn compra__info__botones__boton compra__info__botones__boton--eliminar">Eliminar</button>
-                        </div>
-
-                    </div>
-
-                </div>
-
+    
             </div>
-
-            <div class="tercera__grid__total">
-
-                <h3 class="tercera__grid__total__title">Total</h3>
-
-                <span class="tercera__grid__total__precio">$100</span>
-
-                <button class="btn tercera__grid__total__boton">Comprar</button>
-
+    
+            <div class="segunda__plus" id="abrirMasComidas">
+                <button class="hvr-rotate btn segunda__plus__btn btn-mas-comidas">Más Comidas</button>
             </div>
+    
+        </section>
+    
+        <section class="section delivery" data-aos="fade-right">
+            <img class="delivery__img" src="./assets/delivery.png" alt="entrega a domicilio">
+            <h3 class="title delivery__title">¡ Entregas a Domicilio a toda la ciudad !</h3>
+        </section>
+    
+        <section class="section tercera" data-aos="fade-down" id="pedido">
+    
+            <h2 class="title title__border-blue">Pedidos</h2>
+    
+            <article class="tercera__grid">
+    
+    
+                <ul class="tercera__grid__compras contenedor-compras">
+    
+                    <!-- <li class="compra">
+    
+                        <img class="compra__img" src="./assets/platillo-1.png" alt="comida">
+    
+                        <div class="compra__info">
+    
+                            <div class="compra__info__texts">
+                                <span class="compra__info__texts__name">Carne</span>
+                                <span class="compra__info__texts__cantidad">12</span>
+                            </div>
+    
+                            <div class="compra__info__botones">
+                                <button
+                                    class="btn compra__info__botones__boton compra__info__botones__boton--mas">+1</button>
+                                <button
+                                    class="btn compra__info__botones__boton compra__info__botones__boton--menos">-1</button>
+                                <button
+                                    class="btn compra__info__botones__boton compra__info__botones__boton--eliminar">Eliminar</button>
+                            </div>
+    
+                        </div>
+    
+                    </li> -->
+    
+                </ul>
+    
+                <div class="tercera__grid__total">
+    
+                    <h3 class="tercera__grid__total__title">Total</h3>
+    
+                    <span class="total-precio">0</span>
+    
+                    <button class="btn tercera__grid__total__boton">Comprar</button>
+    
+                </div>
+    
+            </article>
+    
+        </section>
+    
+        <section class="footer">
+    
+            <div class="section footer__grid">
+                
+                <p>Copyright &copy; 2023 El Buen Sazón Restaurant</p>
+    
+            </div>
+    
+        </section>
 
-        </article>
+    </div>
 
-    </section>
-
-    <section class="footer contenido">
-
-        <div class="section footer__grid">
-            
-            <p>Copyright &copy; 2023 El Buen Sazón Restaurant</p>
-
-        </div>
-
-    </section>
 
     <!-- CSS.animate -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/animate.js"></script>
-    <script type="module" src="./js/platillos.js"></script>
+    <script src="./js/platillos.js"></script>
     <script type="module" src="./js/carrito.js"></script>
 </body>
 

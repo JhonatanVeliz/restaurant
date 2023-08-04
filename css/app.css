@@ -34,6 +34,15 @@ body {
   text-align: center;
 }
 
+.total-precio {
+  color: #ededed;
+  text-align: center;
+  font-size: 2.3rem;
+  padding-bottom: 2rem;
+  display: inline-block;
+  width: 100%;
+}
+
 .about {
   background: linear-gradient(90deg, rgb(35, 36, 36) 40%, rgb(19, 20, 20) 79%);
   min-height: auto;
@@ -155,42 +164,6 @@ body {
   box-shadow: 0px 0px 0.5rem #0c0c0c;
 }
 
-.card {
-  overflow: hidden;
-  border-radius: 1rem;
-  box-shadow: 0px 0px 1rem #0c0c0c;
-  display: flex;
-  flex-direction: column;
-}
-.card__img {
-  height: 35rem;
-}
-.card__info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: "mulish";
-  font-weight: 200;
-  font-size: 1.8rem;
-  line-height: 1.5;
-}
-.card__cantidad {
-  padding: 1rem 2rem;
-  background-color: #0a64ff;
-  color: #ededed;
-}
-.card__title {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-}
-.card__btn {
-  padding: 2rem;
-  background-color: #0c0c0c;
-  color: #ededed;
-  font-family: "poppins";
-}
-
 .tercera {
   min-height: auto;
 }
@@ -216,10 +189,6 @@ body {
 .tercera__grid__total__title {
   font-size: 4rem;
   font-weight: 400;
-  padding-bottom: 2rem;
-}
-.tercera__grid__total__precio {
-  font-size: 2.3rem;
   padding-bottom: 2rem;
 }
 .tercera__grid__total__boton {
@@ -306,6 +275,45 @@ body {
   margin: 0;
   color: #ededed;
   font-style: italic;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 1rem #0c0c0c;
+  display: flex;
+  flex-direction: column;
+}
+.card__img {
+  height: 35rem;
+}
+.card__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "mulish";
+  font-weight: 200;
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+.card__cantidad {
+  padding: 1rem 2rem;
+  background-color: #0a64ff;
+  color: #ededed;
+}
+.card__precio {
+  padding-right: 1rem;
+}
+.card__title {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+.card__btn {
+  padding: 2rem;
+  background-color: #0c0c0c;
+  color: #ededed;
+  font-family: "poppins";
 }
 
 .platillos {
@@ -402,7 +410,7 @@ body {
 .add-content {
   opacity: 1;
   margin: 0 auto auto auto;
-  z-index: 20;
+  z-index: 50;
 }
 
 .abrir-carrito {

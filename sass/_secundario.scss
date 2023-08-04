@@ -21,38 +21,3 @@
         }
     }
 }
-.card{
-    overflow: hidden;
-    border-radius: 1rem;
-    box-shadow: 0px 0px 1rem v.$color-black;
-    display: flex;
-    flex-direction: column;
-    &__img{
-        height: 35rem;
-    }
-    &__info{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-family: v.$font-primary;
-        font-weight: 200;
-        font-size: 1.8rem;
-        line-height: 1.5;
-    }
-    &__cantidad{
-        padding: 1rem 2rem;
-        background-color: v.$color-blue;
-        color: v.$color-white;
-    }
-    &__title{
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-    }
-    &__btn{
-        padding: 2rem;
-        background-color: v.$color-black;
-        color: v.$color-white;
-        font-family: v.$font-secundary;
-    }
-}

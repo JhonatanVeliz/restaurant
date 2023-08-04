@@ -1,0 +1,27 @@
+{
+    "platillos" : [
+        {"name" : "Smashed Avo", "src" : "./assets/platillo-1.png", "price" : 25},
+        {"name" : "Rancheros (Tofu)", "src" : "./assets/platillo-2.png", "price" : 20},
+        {"name" : "Yin & Yang", "src" : "./assets/platillo-3.png", "price" : 15},
+        {"name" : "Breakkie Roll", "src" : "./assets/platillo-4.png", "price" : 25},
+        {"name" : "Pankakes", "src" : "./assets/platillo-5.png", "price" : 35},
+        {"name" : "Breakkie Roll Slim", "src" : "./assets/platillo-6.png", "price" : 18},
+        {"name" : "Huevos Rancheros", "src" : "./assets/platillo-7.png", "price" : 25},
+        {"name" : "Burrito", "src" : "./assets/platillo-8.png", "price" : 18},
+        {"name" : "Special Gourmet", "src" : "./assets/platillo-9.jpg", "price" : 35},
+        {"name" : "Vegetable Gourmet", "src" : "./assets/platillo-10.jpg", "price" : 35},
+        {"name" : "Gourmet Pollo", "src" : "./assets/platillo-11.jpg", "price" : 45}
+    ],
+    "bebidas" : [
+        {"name" : "Sumo de Frutas", "src" : "./assets/bebida-1.jpg", "price" : 10},
+        {"name" : "Sumo de Naranja", "src" : "./assets/bebida-2.jpg", "price" : 10},
+        {"name" : "Refresco Orange", "src" : "./assets/bebida-3.jpg", "price" : 10},
+        {"name" : "Cóctel Premium", "src" : "./assets/bebida-4.jpg", "price" : 10},
+        {"name" : "Elixir Premium", "src" : "./assets/bebida-5.jpg", "price" : 10},
+        {"name" : "Refrescante", "src" : "./assets/bebida-6.jpg", "price" : 10},
+        {"name" : "Elixir fresco", "src" : "./assets/bebida-7.jpg", "price" : 10},
+        {"name" : "Elixir malteada", "src" : "./assets/bebida-8.jpg", "price" : 15},
+        {"name" : "Elixir malteada", "src" : "./assets/bebida-9.jpg", "price" : 15},
+        {"name" : "Elixir malteada", "src" : "./assets/bebida-10.jpg", "price" : 15}
+    ]
+}
