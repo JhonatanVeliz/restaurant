@@ -37,6 +37,19 @@
                 flex-direction: row;
                 align-items: center;
             }
+            @media screen and (max-width: 480px) {
+                flex-wrap: wrap;
+            }
+            &__costo{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                @media screen and (max-width: 480px) {
+                    padding-bottom: 1rem;
+                    flex-direction: row;
+                }
+            }
             &__title{
                 font-size: 4rem;
                 font-weight: 400;
@@ -57,6 +70,10 @@
                 @media screen and (max-width: 976px) {
                     padding: 1rem 3rem;
                     font-size: 2rem;
+                }
+                @media screen and (max-width: 480px) {
+                    width: 100%;
+                    display: inline-block;
                 }
             }
         }

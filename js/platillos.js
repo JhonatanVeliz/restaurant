@@ -97,7 +97,7 @@ class Producto {
             <button class="btn card__btn hvr-bounce-to-right" onclick="Producto.agregarUnoMas(${this.getId})">Agregar</button>
         </div>
         `;
-        lugarDeRender.insertAdjacentHTML('beforeend', renderHtml);
+        lugarDeRender.insertAdjacentHTML('afterbegin', renderHtml);
     }
 
     static agregarUnoMas(id){
