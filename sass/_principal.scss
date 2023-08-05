@@ -6,7 +6,12 @@
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-
+    @media screen and (max-width: 676px) {
+        background: url(../assets/background-movil.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
     &__grid {
         display: grid;
         place-content: center;

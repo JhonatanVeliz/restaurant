@@ -92,7 +92,7 @@ class Producto {
     crearHtmlProducto (lugarDeRender){
         const renderHtml = `
         <div class="card" data-id="${this.getId}" data-aos="fade-right">
-            <img class="card__img" src="${this.getImg}" alt="comida">
+            <img class="card__img" src="${this.getImg}" alt="comida" loading="lazy">
             <p class="card__info"><span class="card__cantidad" data-cantidad-producto="${this.getId}">${Producto.contador}</span> <span class="card__title">${this.getNombre}</span> <span class="card__precio">$${this.getPrecio}.00</span></p>
             <button class="btn card__btn hvr-bounce-to-right" onclick="Producto.agregarUnoMas(${this.getId})">Agregar</button>
         </div>

@@ -49,6 +49,14 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+@media screen and (max-width: 676px) {
+  .principal {
+    background: url(../assets/background-movil.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}
 .principal__grid {
   display: grid;
   place-content: center;
@@ -344,14 +352,12 @@ body {
   }
 }
 
-@media screen and (max-width: 676px) {
-  .principal__title {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+.principal__title {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .total-precio {
