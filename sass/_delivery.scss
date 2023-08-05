@@ -15,5 +15,8 @@
         margin: 0;
         color: v.$color-white;
         font-style: italic;
+        @media screen and (max-width: 1000px) {
+            font-size: 2.5rem;
+        }
     }
 }

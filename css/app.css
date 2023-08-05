@@ -12,37 +12,6 @@ body {
   opacity: 1;
 }
 
-.title {
-  padding-bottom: 1.5rem;
-  margin-bottom: 3rem;
-  display: inline-block;
-  font-family: "poppins";
-  font-size: 4rem;
-}
-.title__border-violet {
-  border-bottom: 5px solid #7d64fc;
-}
-.title__border-blue {
-  border-bottom: 5px solid #0a64ff;
-}
-
-.paragraph {
-  font-size: 3rem;
-  font-family: "poppins";
-  font-weight: 200;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.total-precio {
-  color: #ededed;
-  text-align: center;
-  font-size: 2.3rem;
-  padding-bottom: 2rem;
-  display: inline-block;
-  width: 100%;
-}
-
 .about {
   background: linear-gradient(90deg, rgb(35, 36, 36) 40%, rgb(19, 20, 20) 79%);
   min-height: auto;
@@ -173,10 +142,28 @@ body {
   display: flex;
   justify-content: space-between;
 }
+@media screen and (max-width: 1000px) {
+  .tercera__grid {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+}
 .tercera__grid__compras {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+}
+@media screen and (max-width: 1000px) {
+  .tercera__grid__compras {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 676px) {
+  .tercera__grid__compras {
+    justify-content: center;
+  }
 }
 .tercera__grid__total {
   padding: 3rem 5rem;
@@ -189,10 +176,22 @@ body {
   text-align: center;
   height: 25rem;
 }
+@media screen and (max-width: 1000px) {
+  .tercera__grid__total {
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+  }
+}
 .tercera__grid__total__title {
   font-size: 4rem;
   font-weight: 400;
   padding-bottom: 2rem;
+}
+@media screen and (max-width: 976px) {
+  .tercera__grid__total__title {
+    padding: 0;
+  }
 }
 .tercera__grid__total__boton {
   padding: 1.5rem 6rem;
@@ -203,6 +202,12 @@ body {
 }
 .tercera__grid__total__boton:hover {
   opacity: 0.9;
+}
+@media screen and (max-width: 976px) {
+  .tercera__grid__total__boton {
+    padding: 1rem 3rem;
+    font-size: 2rem;
+  }
 }
 
 .compra {
@@ -215,6 +220,11 @@ body {
   align-items: center;
   color: #ededed;
   font-family: "poppins";
+}
+@media screen and (max-width: 676px) {
+  .compra {
+    width: 100%;
+  }
 }
 .compra__img {
   width: 7rem;
@@ -262,6 +272,79 @@ body {
   opacity: 0.9;
 }
 
+.title {
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  display: inline-block;
+  font-family: "poppins";
+  font-size: 4rem;
+}
+.title__border-violet {
+  border-bottom: 5px solid #7d64fc;
+}
+.title__border-blue {
+  border-bottom: 5px solid #0a64ff;
+}
+@media screen and (max-width: 925px) {
+  .title {
+    font-size: 3rem;
+    line-height: 2;
+  }
+}
+@media screen and (max-width: 676px) {
+  .title {
+    font-size: 2.3rem;
+    line-height: 1.3;
+  }
+}
+
+.paragraph {
+  font-size: 3rem;
+  font-family: "poppins";
+  font-weight: 200;
+  line-height: 1.5;
+  text-align: center;
+}
+@media screen and (max-width: 925px) {
+  .paragraph {
+    font-size: 2rem;
+    line-height: 2;
+  }
+}
+@media screen and (max-width: 676px) {
+  .paragraph {
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+  .paragraph:nth-last-of-type(2) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 676px) {
+  .principal__title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+.total-precio {
+  color: #ededed;
+  text-align: center;
+  font-size: 2.3rem;
+  padding-bottom: 2rem;
+  display: inline-block;
+  width: 100%;
+}
+@media screen and (max-width: 976px) {
+  .total-precio {
+    padding: 0;
+  }
+}
+
 .delivery {
   padding: 1.5rem 3rem;
   background-color: #7d64fc;
@@ -278,6 +361,11 @@ body {
   margin: 0;
   color: #ededed;
   font-style: italic;
+}
+@media screen and (max-width: 1000px) {
+  .delivery__title {
+    font-size: 2.5rem;
+  }
 }
 
 .card {
@@ -384,6 +472,11 @@ body {
   top: 5rem;
   right: 1rem;
   display: none;
+}
+@media screen and (max-width: 925px) {
+  .platillos__carrito__productos {
+    width: 90vw;
+  }
 }
 .platillos__grid {
   display: grid;

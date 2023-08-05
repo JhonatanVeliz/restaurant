@@ -5,10 +5,22 @@
     &__grid{
         display: flex;
         justify-content: space-between;
+        @media screen and (max-width: 1000px) {
+            flex-direction: column-reverse;
+            gap: 1rem;
+        }
         &__compras{
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
+            @media screen and (max-width: 1000px) {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            @media screen and (max-width: 676px) {
+                justify-content: center;
+            }
         }
         &__total{
             padding: 3rem 5rem;
@@ -20,10 +32,18 @@
             flex-direction: column;
             text-align: center;
             height: 25rem;
+            @media screen and (max-width: 1000px) {
+                height: auto;
+                flex-direction: row;
+                align-items: center;
+            }
             &__title{
                 font-size: 4rem;
                 font-weight: 400;
                 padding-bottom: 2rem;
+                @media screen and (max-width: 976px) {
+                    padding: 0;
+                }
             }
             &__boton{
                 padding: 1.5rem 6rem;
@@ -33,6 +53,10 @@
                 color: v.$color-white;
                 &:hover{
                     opacity: .9;
+                }
+                @media screen and (max-width: 976px) {
+                    padding: 1rem 3rem;
+                    font-size: 2rem;
                 }
             }
         }
@@ -48,6 +72,9 @@
     align-items: center;
     color: v.$color-white;
     font-family: v.$font-secundary;
+    @media screen and (max-width: 676px) {
+        width: 100%;
+    }
     &__img{
         width: 7rem;
         height: 7rem;
