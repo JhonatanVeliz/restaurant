@@ -45,9 +45,9 @@ const recibeJSON = (json) => {
     recorrerProductos(bebidas)
 }
 
-const recorrerProductos = arrayProductos => arrayProductos.forEach( producto => infoProducto(producto));
+const recorrerProductos = arrayProductos => arrayProductos.forEach( producto => infoProducto(producto, platillosRenderContenedor));
 
-const infoProducto = (producto) => {
+const infoProducto = (producto, lugarDeRender) => {
 
     const {name, src, price} = producto;
 
@@ -60,11 +60,10 @@ const infoProducto = (producto) => {
     objetoProducto.setCantidad = 0;
     objetoProducto.setDescuento = false;
 
-    objetoProducto.crearHtmlProducto();
+    objetoProducto.crearHtmlProducto(lugarDeRender);
 }
 
 class Producto {
-
     static contador = 0;
 
     constructor( nombre,  precio, img, id, descuento){
@@ -90,18 +89,19 @@ class Producto {
     set setDescuento (descuento){this._descuento = descuento};
     get getDescuento (){return this._descuento};
 
-    crearHtmlProducto (){
+    crearHtmlProducto (lugarDeRender){
         const renderHtml = `
-        <div class="card" data-id="${this.getId}">
+        <div class="card" data-id="${this.getId}" data-aos="fade-right">
             <img class="card__img" src="${this.getImg}" alt="comida">
             <p class="card__info"><span class="card__cantidad" data-cantidad-producto="${this.getId}">${Producto.contador}</span> <span class="card__title">${this.getNombre}</span> <span class="card__precio">$${this.getPrecio}.00</span></p>
             <button class="btn card__btn hvr-bounce-to-right" onclick="Producto.agregarUnoMas(${this.getId})">Agregar</button>
         </div>
         `;
-        platillosRenderContenedor.insertAdjacentHTML('beforeend', renderHtml);
+        lugarDeRender.insertAdjacentHTML('beforeend', renderHtml);
     }
 
     static agregarUnoMas(id){
+
         const producto = document.querySelector(`[data-id="${id}"]`);
         const nombre = producto.querySelector('.card__title').innerText;
         const img = producto.querySelector('.card__img').src;
@@ -117,6 +117,25 @@ class Producto {
         carritoItem._precio = precio;
         carritoItem._cantidad = nuevaCantidad;
         carritoItem.crearItemCarritos();
+    }
+
+    static quitarUnoMas(id, precio){
+        // -1-1-1212-12-12-121-212-12-1-21-21-21-21-21-21-21-2-12-12-12-12-12
+        const cardProductoCantidad = document.querySelector(`[data-cantidad-producto="${id}"]`);
+        cardProductoCantidad.innerText = Number(cardProductoCantidad.innerText) - 1;
+        const productoItems = document.querySelectorAll(`[data-item="${id}"]`);
+        productoItems.forEach( productoItem =>{
+            const producto = productoItem;
+            const productoCantidad = producto.querySelector(`[data-cantidad="${id}"]`);
+
+            if(productoCantidad.innerText <= 1){return producto.remove()};
+            productoCantidad.innerText = Number(productoCantidad.innerText) - 1;
+        })
+
+        sumaTotal.forEach( total =>{
+            total.innerText = `$ ${Number(total.innerText.slice(1)) - Number(precio)}`;
+        })
+        CarritoItem.aumentarRestarNumeroDeProductosIcono();
     }
 
     static creartId(){return `${new Date().getTime() + Math.random()}`};
@@ -157,9 +176,9 @@ class CarritoItem {
         if(itemCard){
             const itemsCardCantidad = document.querySelectorAll(`[data-cantidad="${this.getId}"]`);
             return itemsCardCantidad.forEach( itemCantidad => itemCantidad.innerText = this.getCantidad);
-        }else{
-            
-            const item = `
+        }
+
+        const item = `
             <li class="compra" data-item="${this.getId}">
             
                 <img class="compra__img" src="${this.getImg}" alt="comida">
@@ -173,24 +192,23 @@ class CarritoItem {
         
                     <div class="compra__info__botones">
                         <button
-                            class="btn compra__info__botones__boton compra__info__botones__boton--mas">+1</button>
+                            class="btn compra__info__botones__boton compra__info__botones__boton--mas" onclick="Producto.agregarUnoMas(${this.getId})">+1</button>
                         <button
-                            class="btn compra__info__botones__boton compra__info__botones__boton--menos">-1</button>
+                            class="btn compra__info__botones__boton compra__info__botones__boton--menos" onclick="Producto.quitarUnoMas(${this.getId}, ${precio})">-1</button>
                         <button
-                            class="btn compra__info__botones__boton compra__info__botones__boton--eliminar" onclick="CarritoItem.eliminarProducto(${this.getId}, ${precio})">Eliminar</button>
+                            class="btn compra__info__botones__boton compra__info__botones__boton--eliminar" onclick="CarritoItem.eliminarTodoElProducto(${this.getId}, ${precio})">Eliminar</button>
                     </div>
         
                 </div>
         
             </li>
             `
-            contenedoresCompras.forEach( contenedor =>  contenedor.insertAdjacentHTML('afterbegin', item));
-        }
+        contenedoresCompras.forEach( contenedor =>  contenedor.insertAdjacentHTML('afterbegin', item));
     
-        CarritoItem.aumentarRestarNumeroDeProductos();
+        CarritoItem.aumentarRestarNumeroDeProductosIcono();
     }
 
-    static eliminarProducto (id, precio){
+    static eliminarTodoElProducto (id, precio){
         const productosMismoItem = document.querySelectorAll(`[data-item="${id}"]`);
         const cantidadDeProducto = document.querySelector(`[data-cantidad="${id}"]`);
         const cantidadARestarTotal = Number(cantidadDeProducto.innerText) * precio;
@@ -203,10 +221,10 @@ class CarritoItem {
         const productoCard = document.querySelector(`[data-cantidad-producto="${id}"]`);
         productoCard.innerText = '0';
 
-        CarritoItem.aumentarRestarNumeroDeProductos();
+        CarritoItem.aumentarRestarNumeroDeProductosIcono();
     }
 
-    static aumentarRestarNumeroDeProductos(){
+    static aumentarRestarNumeroDeProductosIcono(){
         const carrito = $('#carrito');
         const cantidadDeProcdutos = carrito.querySelectorAll('.compra');
 
@@ -229,3 +247,24 @@ btnAbrirMasPlatillos.addEventListener('click', ()=> {
     if(cantidadLlamadaApi <= 0){llamadaAPI(API_URL, 'productos.json'), cantidadLlamadaApi++};
     removerAddContenido(contenido, nuevoContenido, true);
 })
+
+// Platillos precargados de muestra 
+const gridPlatillosPrecargados = $('#platillos-precargados');
+
+// Crear 4 platillos de muestra
+( () => {
+    const arrayDeNombreDePlatillos = ['Smashed Avo', 'Huevos Ranchero', 'Sumo de Frutas', 'Breakkie Roll'];
+    const arrayDePrecioDePlatillos = ['25', '25', '10', '25'];
+    const arrayDeImgDePlatillos = ['./assets/platillo-1.png', './assets/platillo-7.png', './assets/bebida-2.jpg', './assets/platillo-4.png'];
+   
+    for (let numeroPlatillo = 0; numeroPlatillo < 4; numeroPlatillo++) {
+        
+        const platillo = {
+            name : `${arrayDeNombreDePlatillos[numeroPlatillo]}`,
+            src  : `${arrayDeImgDePlatillos[numeroPlatillo]}`,
+            price  : `${arrayDePrecioDePlatillos[numeroPlatillo]}`
+        }
+
+        infoProducto(platillo, gridPlatillosPrecargados);
+    }
+})();

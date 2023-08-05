@@ -2,8 +2,6 @@
 
 .platillos{
     background-color: v.$color-white;
-    display: flex;
-    justify-content: center;
     width: 100%;
     padding: 2.5rem 2rem;
     margin-top: -150%;
@@ -11,7 +9,12 @@
     z-index: -1;
     opacity: 0;
     transition: opacity 1s ease, margin-top .1s ease;
+    min-height: 0;
+    height: 0;
+    overflow: hidden;
     &__header{
+        max-width: 1400px;
+        margin: auto;
         display: flex;
         justify-content: space-between;
         font-family: v.$font-primary;
@@ -62,9 +65,10 @@
         }
     }
     &__grid{
-        min-height: 120vh;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+        grid-auto-flow: dense;
         gap: 2rem;
+        width: 100%;
     }
 }
