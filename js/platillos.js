@@ -26,7 +26,7 @@ const platillosRenderContenedor = $('#platillos-render');
 const btnAbrirMasPlatillos = $('#abrirMasComidas');
 
 // SIMULACIÓN DE API ( PROVEEDOR DE LA INFORMACIÓN, IMG Y NOMBRE DE LAS COMIDAS )
-const API_URL = 'http://127.0.0.1:5500/';
+const API_URL = 'https://jhonatanveliz.github.io/restaurant/';
 
 const llamadaAPI = async (url, directorio) => {
     const resp = await fetch(`${url}${directorio}`);
