@@ -38,6 +38,13 @@
     line-height: 1.5;
     text-align: center;
 
+    &--white{
+        color: v.$color-white;
+        font-family: v.$font-secundary;
+        line-height: 1.5;
+        font-size: 2rem;
+    }
+
     @media screen and (max-width: 925px) {
         font-size: 2rem;
         line-height: 2;

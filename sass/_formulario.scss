@@ -78,9 +78,9 @@
         padding: 1rem;
         right: .5rem;
         top: .5rem;
-        width: 5rem;
-        height: 5rem;
-        border-radius: 50%;
+        color: v.$color-white;
+        border-radius: 1rem;
+        font-family: v.$font-secundary;
         cursor: pointer;
         display: grid;
         place-content: center;

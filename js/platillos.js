@@ -279,28 +279,31 @@ const checkBoxs = $('.formulario__opcion', true);
 const btnCompraTotal = $('#compra-total');
 const btnCerrar = $('#btn-cerrar');
 
+const regexEspaciosGuines =  /\s+|-/;
+
 formulario.addEventListener('submit', (e) => e.preventDefault());
 
-checkBoxs.forEach(check => {
-    check.checked = false;
-    check.addEventListener('click', (e) => {
+const funcionesCheckBoxs = (checks) => {
 
-        const checkBox = e.target;
-
-        botonChecked(checkBox);
-
-        if (checkBox.name === 'opcion-1') {
-            setTimeout(() => renderReservacion(formularioRender, 'Completar Reservación', true), 200);
-        } else {
-            setTimeout(() => renderReservacion(formularioRender, 'Completar Pedido', false), 200);
-        }
-
+    checks.forEach(check => {
+        check.checked = false;
+        check.addEventListener('click', (e) => {
+    
+            const checkBox = e.target;
+    
+            botonChecked(checkBox);
+    
+            if (checkBox.name === 'opcion-1') {
+                setTimeout(() => renderReservacion(formularioRender, 'Completar Reservación', true), 200);
+            } else {
+                setTimeout(() => renderReservacion(formularioRender, 'Completar Pedido', false), 200);
+            }
+    
+        });
     });
-});
-
-const botonChecked = (e) => {
-    e.disabled = true;
 }
+
+const botonChecked = e => e.disabled = true;
 
 const renderReservacion = (render, titulo, isReservacion) => {
     render.classList.add('formulario__render');
@@ -308,7 +311,7 @@ const renderReservacion = (render, titulo, isReservacion) => {
 
     const renderHtml = `
         <label for="usuario-nombre" class="formulario__render__label">Nombre Completo:</label>
-        <input type="text" id="usuario-nombre" class="formulario__render__input" placeholder="Nombre Completo:">
+        <input type="text" id="usuario-nombre" class="formulario__render__input" placeholder="Nombre y Apellido:">
 
         <label for="usuario-contacto" class="formulario__render__label">Número de Contacto:</label>
         <input type="number" id="usuario-contacto" class="formulario__render__input" placeholder="Número de tel:">
@@ -328,6 +331,25 @@ const renderReservacion = (render, titulo, isReservacion) => {
     render.innerHTML = renderHtml;
 }
 
+const renderPrincipal = (render) => {
+    const html = `
+    <label for="opcion-1" class="formulario__opcion__text">
+        ¿ Reservar Una Cita ?
+        <input type="checkbox" name="opcion-1" class="formulario__opcion">
+    </label>
+
+    <label for="opcion-2" class="formulario__opcion__text">
+        ¿ Hacer un Pedido ?
+        <input type="checkbox" name="opcion-2" class="formulario__opcion">
+    </label>
+    `;
+
+    render.innerHTML = html;
+
+    const checkBoxs = $('.formulario__opcion', true);
+    funcionesCheckBoxs(checkBoxs);
+}
+
 const enviarReservaOPedido = (padreRenderId) => {
     const formulario = $(`#${padreRenderId}`);
 
@@ -338,13 +360,18 @@ const enviarReservaOPedido = (padreRenderId) => {
     ]
 
     if (campos.includes('')) {
-        alert('Campos invalidos');
-    } else if (isNaN(campos[1])) {
-        alert('Por favor, introduce un correo electrónico o un número válido');
-    } else {
-        completarCompra(padreRenderId);
-    }
+        formularioTitulo.innerText = 'Campos Vacíos'
+    } else if (!isNaN(campos[1]) && campos[1].length > 7) {
 
+        const nombre = campos[0].split(regexEspaciosGuines);
+        const direccion = campos[2].split(regexEspaciosGuines);
+
+        (nombre.length < 2 || direccion.length < 2)
+            ? formularioTitulo.innerText = 'Ingresa datos completos'
+            : completarCompra(padreRenderId);
+    } else {
+        formularioTitulo.innerText = 'Porfavor ingresa información válida'
+    }
 }
 
 const completarCompra = (formId) => {
@@ -355,6 +382,7 @@ const completarCompra = (formId) => {
         <div class="carga">
             <span class="carga__value" id="barra-carga"></span>
         </div>
+        <p class="paragraph--white">Proyecto Autónomo y Ficticio</p>
     `;
 
     barraCarga();
@@ -366,7 +394,13 @@ const barraCarga = () => {
 
     const interval = setInterval(() => {
         counter++;
-        if (counter <= 100) {barra.style.width = `${counter}%`}
+        if (counter <= 100){
+            barra.style.width = `${counter}%`
+            btnCerrar.addEventListener('click', ()=>{
+                formularioContainer.classList.remove('formulario-container-visibled');
+                return clearInterval(interval);
+            })
+        }
         else {
             formularioContainer.classList.remove('formulario-container-visibled');
             clearInterval(interval);
@@ -380,6 +414,10 @@ btnCompraTotal.addEventListener('click', () => {
 
     if(total == 0){return};
     formularioContainer.classList.add('formulario-container-visibled');
+    funcionesCheckBoxs(checkBoxs);
 })
 
-btnCerrar.addEventListener('click', () => formularioContainer.classList.remove('formulario-container-visibled'));
+btnCerrar.addEventListener('click', () => {
+    formularioContainer.classList.remove('formulario-container-visibled');
+    renderPrincipal(formularioRender);
+});

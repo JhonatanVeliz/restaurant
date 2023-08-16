@@ -342,6 +342,12 @@ body {
   line-height: 1.5;
   text-align: center;
 }
+.paragraph--white {
+  color: #ededed;
+  font-family: "poppins";
+  line-height: 1.5;
+  font-size: 2rem;
+}
 @media screen and (max-width: 925px) {
   .paragraph {
     font-size: 2rem;
@@ -635,9 +641,9 @@ body {
   padding: 1rem;
   right: 0.5rem;
   top: 0.5rem;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
+  color: #ededed;
+  border-radius: 1rem;
+  font-family: "poppins";
   cursor: pointer;
   display: grid;
   place-content: center;
