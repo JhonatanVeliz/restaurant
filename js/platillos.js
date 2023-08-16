@@ -9,16 +9,16 @@ const btnComprarYRedirec = $('.btn-comprar');
 const redirigirPagina = href => window.location.href = href;
 
 const removerAddContenido = (contenido, nuevoContenido, abrirCerrar) => {
-    if(abrirCerrar){return contenido.classList.add('delete-content'), nuevoContenido.classList.add('add-content')};
+    if (abrirCerrar) { return contenido.classList.add('delete-content'), nuevoContenido.classList.add('add-content') };
 
     contenido.classList.remove('delete-content'), nuevoContenido.classList.remove('add-content');
 }
 
-btnCerrarMasPlatillos.addEventListener('click', ()=> removerAddContenido(contenido, nuevoContenido, false));
+btnCerrarMasPlatillos.addEventListener('click', () => removerAddContenido(contenido, nuevoContenido, false));
 
 btnComprarYRedirec.addEventListener('click', () => {
     removerAddContenido(contenido, nuevoContenido, false);
-    setTimeout( () => redirigirPagina('./index.html#pedido'), 100)
+    setTimeout(() => redirigirPagina('./index.html#pedido'), 100)
 });
 
 // ------------------------   LOGICA RELACIONADA A LOS PLATILLOS   -------------------------------
@@ -32,7 +32,7 @@ const llamadaAPI = async (url, directorio) => {
     const resp = await fetch(`${url}${directorio}`);
     const json = await resp.json();
 
-    if (resp.status !== 200) {throw Error('Problemas Con la carga de los Platillos por favor recargue la página...')};
+    if (resp.status !== 200) { throw Error('Problemas Con la carga de los Platillos por favor recargue la página...') };
 
     recibeJSON(json);
 }
@@ -45,11 +45,11 @@ const recibeJSON = (json) => {
     recorrerProductos(bebidas)
 }
 
-const recorrerProductos = arrayProductos => arrayProductos.forEach( producto => infoProducto(producto, platillosRenderContenedor));
+const recorrerProductos = arrayProductos => arrayProductos.forEach(producto => infoProducto(producto, platillosRenderContenedor));
 
 const infoProducto = (producto, lugarDeRender) => {
 
-    const {name, src, price} = producto;
+    const { name, src, price } = producto;
 
     const objetoProducto = new Producto();
 
@@ -66,7 +66,7 @@ const infoProducto = (producto, lugarDeRender) => {
 class Producto {
     static contador = 0;
 
-    constructor( nombre,  precio, img, id, descuento){
+    constructor(nombre, precio, img, id, descuento) {
         this._nombre = nombre;
         this._precio = precio;
         this._img = img;
@@ -74,22 +74,22 @@ class Producto {
         this._descuento = descuento;
     }
 
-    set setNombre (nombre){this._nombre = nombre};
-    get getNombre (){return this._nombre};
+    set setNombre(nombre) { this._nombre = nombre };
+    get getNombre() { return this._nombre };
 
-    set setPrecio (precio){this._precio = precio};
-    get getPrecio (){return this._precio};
+    set setPrecio(precio) { this._precio = precio };
+    get getPrecio() { return this._precio };
 
-    set setImg (imgSrc){this._img = imgSrc};
-    get getImg (){return this._img};
+    set setImg(imgSrc) { this._img = imgSrc };
+    get getImg() { return this._img };
 
-    set setId (id){this._id = id};
-    get getId (){return this._id};
+    set setId(id) { this._id = id };
+    get getId() { return this._id };
 
-    set setDescuento (descuento){this._descuento = descuento};
-    get getDescuento (){return this._descuento};
+    set setDescuento(descuento) { this._descuento = descuento };
+    get getDescuento() { return this._descuento };
 
-    crearHtmlProducto (lugarDeRender){
+    crearHtmlProducto(lugarDeRender) {
         const renderHtml = `
         <div class="card" data-id="${this.getId}" data-aos="fade-right">
             <img class="card__img" src="${this.getImg}" alt="comida" loading="lazy">
@@ -100,7 +100,7 @@ class Producto {
         lugarDeRender.insertAdjacentHTML('afterbegin', renderHtml);
     }
 
-    static agregarUnoMas(id){
+    static agregarUnoMas(id) {
 
         const producto = document.querySelector(`[data-id="${id}"]`);
         const nombre = producto.querySelector('.card__title').innerText;
@@ -119,31 +119,31 @@ class Producto {
         carritoItem.crearItemCarritos();
     }
 
-    static quitarUnoMas(id, precio){
+    static quitarUnoMas(id, precio) {
         // -1-1-1212-12-12-121-212-12-1-21-21-21-21-21-21-21-2-12-12-12-12-12
         const cardProductoCantidad = document.querySelector(`[data-cantidad-producto="${id}"]`);
         cardProductoCantidad.innerText = Number(cardProductoCantidad.innerText) - 1;
         const productoItems = document.querySelectorAll(`[data-item="${id}"]`);
-        productoItems.forEach( productoItem =>{
+        productoItems.forEach(productoItem => {
             const producto = productoItem;
             const productoCantidad = producto.querySelector(`[data-cantidad="${id}"]`);
 
-            if(productoCantidad.innerText <= 1){return producto.remove()};
+            if (productoCantidad.innerText <= 1) { return producto.remove() };
             productoCantidad.innerText = Number(productoCantidad.innerText) - 1;
         })
 
-        sumaTotal.forEach( total =>{
+        sumaTotal.forEach(total => {
             total.innerText = `$ ${Number(total.innerText.slice(1)) - Number(precio)}`;
         })
         CarritoItem.aumentarRestarNumeroDeProductosIcono();
     }
 
-    static creartId(){return `${new Date().getTime() + Math.random()}`};
+    static creartId() { return `${new Date().getTime() + Math.random()}` };
 }
 
 class CarritoItem {
 
-    constructor(id, nombre, img, precio, cantidad){
+    constructor(id, nombre, img, precio, cantidad) {
         this._id = id;
         this._nombre = nombre;
         this._img = img;
@@ -151,31 +151,31 @@ class CarritoItem {
         this._cantidad = cantidad;
     }
 
-    set setId (id){this._id = id};
-    get getId (){return this._id};
+    set setId(id) { this._id = id };
+    get getId() { return this._id };
 
-    set setNombre (nombre){this._nombre = nombre};
-    get getNombre (){return this._nombre};
+    set setNombre(nombre) { this._nombre = nombre };
+    get getNombre() { return this._nombre };
 
-    set setImg (img){this._img = img};
-    get getImg (){return this._img};
+    set setImg(img) { this._img = img };
+    get getImg() { return this._img };
 
-    set setPrecio (precio){this._precio = precio};
-    get getPrecio (){return this._precio};
+    set setPrecio(precio) { this._precio = precio };
+    get getPrecio() { return this._precio };
 
-    set setCantidad (cantidad){this._cantidad = cantidad};
-    get getCantidad (){return this._cantidad};
+    set setCantidad(cantidad) { this._cantidad = cantidad };
+    get getCantidad() { return this._cantidad };
 
-    crearItemCarritos () {
-    
+    crearItemCarritos() {
+
         const precio = this.getPrecio.slice(1);
-        sumaTotal.forEach( total => total.innerText = `$ ${Number(total.innerText.slice(1)) + Number(precio)}`);
-    
+        sumaTotal.forEach(total => total.innerText = `$ ${Number(total.innerText.slice(1)) + Number(precio)}`);
+
         const itemCard = document.querySelector(`[data-item="${this.getId}"]`);
-    
-        if(itemCard){
+
+        if (itemCard) {
             const itemsCardCantidad = document.querySelectorAll(`[data-cantidad="${this.getId}"]`);
-            return itemsCardCantidad.forEach( itemCantidad => itemCantidad.innerText = this.getCantidad);
+            return itemsCardCantidad.forEach(itemCantidad => itemCantidad.innerText = this.getCantidad);
         }
 
         const item = `
@@ -203,19 +203,19 @@ class CarritoItem {
         
             </li>
             `
-        contenedoresCompras.forEach( contenedor =>  contenedor.insertAdjacentHTML('afterbegin', item));
-    
+        contenedoresCompras.forEach(contenedor => contenedor.insertAdjacentHTML('afterbegin', item));
+
         CarritoItem.aumentarRestarNumeroDeProductosIcono();
     }
 
-    static eliminarTodoElProducto (id, precio){
+    static eliminarTodoElProducto(id, precio) {
         const productosMismoItem = document.querySelectorAll(`[data-item="${id}"]`);
         const cantidadDeProducto = document.querySelector(`[data-cantidad="${id}"]`);
         const cantidadARestarTotal = Number(cantidadDeProducto.innerText) * precio;
 
-        productosMismoItem.forEach( producto => producto.remove());
-        sumaTotal.forEach( itemSuma => {
-            itemSuma.innerText =  `$ ${Number(itemSuma.innerText.slice(1)) - cantidadARestarTotal}`;
+        productosMismoItem.forEach(producto => producto.remove());
+        sumaTotal.forEach(itemSuma => {
+            itemSuma.innerText = `$ ${Number(itemSuma.innerText.slice(1)) - cantidadARestarTotal}`;
         });
 
         const productoCard = document.querySelector(`[data-cantidad-producto="${id}"]`);
@@ -224,14 +224,14 @@ class CarritoItem {
         CarritoItem.aumentarRestarNumeroDeProductosIcono();
     }
 
-    static aumentarRestarNumeroDeProductosIcono(){
+    static aumentarRestarNumeroDeProductosIcono() {
         const carrito = $('#carrito');
         const cantidadDeProcdutos = carrito.querySelectorAll('.compra');
 
         numeroDeProductosIconoCart.innerText = cantidadDeProcdutos.length;
-        return (numeroDeProductosIconoCart.innerText != '0') 
-        ? numeroDeProductosIconoCart.classList.add('platillos__carrito__boton__cantidad--active')
-        : numeroDeProductosIconoCart.classList.remove('platillos__carrito__boton__cantidad--active');
+        return (numeroDeProductosIconoCart.innerText != '0')
+            ? numeroDeProductosIconoCart.classList.add('platillos__carrito__boton__cantidad--active')
+            : numeroDeProductosIconoCart.classList.remove('platillos__carrito__boton__cantidad--active');
     }
 }
 
@@ -243,28 +243,143 @@ const numeroDeProductosIconoCart = $('#numero-de-productos');
 
 let cantidadLlamadaApi = 0;
 
-btnAbrirMasPlatillos.addEventListener('click', ()=> {
-    if(cantidadLlamadaApi <= 0){llamadaAPI(API_URL, 'productos.json'), cantidadLlamadaApi++};
+btnAbrirMasPlatillos.addEventListener('click', () => {
+    if (cantidadLlamadaApi <= 0) { llamadaAPI(API_URL, 'productos.json'), cantidadLlamadaApi++ };
     removerAddContenido(contenido, nuevoContenido, true);
 })
 
 // Platillos precargados de muestra 
 const gridPlatillosPrecargados = $('#platillos-precargados');
 
-// Crear 4 platillos de muestra
-( () => {
+// Crear 4 platillos de muestra en la base de la pagina
+(() => {
     const arrayDeNombreDePlatillos = ['Smashed Avo', 'Huevos Ranchero', 'Sumo de Frutas', 'Breakkie Roll'];
     const arrayDePrecioDePlatillos = ['25', '25', '10', '25'];
     const arrayDeImgDePlatillos = ['./assets/platillo-1.png', './assets/platillo-7.png', './assets/bebida-2.jpg', './assets/platillo-4.png'];
-   
+
     for (let numeroPlatillo = 0; numeroPlatillo < 4; numeroPlatillo++) {
-        
+
         const platillo = {
-            name : `${arrayDeNombreDePlatillos[numeroPlatillo]}`,
-            src  : `${arrayDeImgDePlatillos[numeroPlatillo]}`,
-            price  : `${arrayDePrecioDePlatillos[numeroPlatillo]}`
+            name: `${arrayDeNombreDePlatillos[numeroPlatillo]}`,
+            src: `${arrayDeImgDePlatillos[numeroPlatillo]}`,
+            price: `${arrayDePrecioDePlatillos[numeroPlatillo]}`
         }
 
         infoProducto(platillo, gridPlatillosPrecargados);
     }
 })();
+
+// ESPACIO DE FORMULARIO DE COMPRA
+const formularioRender = $('#formulario__render');
+const formularioContainer = $('.formulario-container');
+const formulario = $('.formulario');
+const formularioTitulo = $('#formulario-titulo');
+const checkBoxs = $('.formulario__opcion', true);
+
+const btnCompraTotal = $('#compra-total');
+const btnCerrar = $('#btn-cerrar');
+
+formulario.addEventListener('submit', (e) => e.preventDefault());
+
+checkBoxs.forEach(check => {
+    check.checked = false;
+    check.addEventListener('click', (e) => {
+
+        const checkBox = e.target;
+
+        botonChecked(checkBox);
+
+        if (checkBox.name === 'opcion-1') {
+            setTimeout(() => renderReservacion(formularioRender, 'Completar Reservación', true), 200);
+        } else {
+            setTimeout(() => renderReservacion(formularioRender, 'Completar Pedido', false), 200);
+        }
+
+    });
+});
+
+const botonChecked = (e) => {
+    e.disabled = true;
+}
+
+const renderReservacion = (render, titulo, isReservacion) => {
+    render.classList.add('formulario__render');
+    formularioTitulo.innerText = titulo;
+
+    const renderHtml = `
+        <label for="usuario-nombre" class="formulario__render__label">Nombre Completo:</label>
+        <input type="text" id="usuario-nombre" class="formulario__render__input" placeholder="Nombre Completo:">
+
+        <label for="usuario-contacto" class="formulario__render__label">Número de Contacto:</label>
+        <input type="number" id="usuario-contacto" class="formulario__render__input" placeholder="Número de tel:">
+
+        ${isReservacion
+            ?
+            `<label for="usuario-fecha" class="formulario__render__label">Fecha de Reservación:</label>
+             <input type="date" id="usuario-fecha" class="formulario__render__input">`
+            :
+            `<label for="usuario-fecha" class="formulario__render__label">Direccíon:</label>
+             <input type="text" id="usuario-fecha" class="formulario__render__input" placeholder="calle, avenida y zona">`
+        }
+
+        <button class="btn formulario__btn" onclick="enviarReservaOPedido('${render.id}')">Aceptar</button>
+    `;
+
+    render.innerHTML = renderHtml;
+}
+
+const enviarReservaOPedido = (padreRenderId) => {
+    const formulario = $(`#${padreRenderId}`);
+
+    const campos = [
+        formulario.querySelector('#usuario-nombre').value,
+        formulario.querySelector('#usuario-contacto').value,
+        formulario.querySelector('#usuario-fecha').value,
+    ]
+
+    if (campos.includes('')) {
+        alert('Campos invalidos');
+    } else if (isNaN(campos[1])) {
+        alert('Por favor, introduce un correo electrónico o un número válido');
+    } else {
+        completarCompra(padreRenderId);
+    }
+
+}
+
+const completarCompra = (formId) => {
+    const formulario = $(`#${formId}`);
+    formularioTitulo.innerText = 'Completando Acción...';
+
+    formulario.innerHTML = `
+        <div class="carga">
+            <span class="carga__value" id="barra-carga"></span>
+        </div>
+    `;
+
+    barraCarga();
+}
+
+const barraCarga = () => {
+    let counter = 0;
+    const barra = $('#barra-carga');
+
+    const interval = setInterval(() => {
+        counter++;
+        if (counter <= 100) {barra.style.width = `${counter}%`}
+        else {
+            formularioContainer.classList.remove('formulario-container-visibled');
+            clearInterval(interval);
+            location.reload();
+        }
+    }, 50);
+}
+
+btnCompraTotal.addEventListener('click', () => {
+    const total = sumaTotal[1].innerText;
+
+    if(total == 0){return};
+    formularioContainer.classList.add('formulario-container-visibled');
+})
+
+btnCerrar.addEventListener('click', () => formularioContainer.classList.remove('formulario-container-visibled'));

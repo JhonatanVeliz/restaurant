@@ -56,7 +56,7 @@
 
     </section>
 
-    <div class="contenido">
+    <article class="contenido">
 
         <header class="principal">
     
@@ -74,8 +74,8 @@
                     </p>
     
                     <div class="principal__botones">
-                        <a href="#about" class="hvr-shutter-out-horizontal principal__botones__boton">ABOUT</a>
-                        <a href="#menu" class="hvr-shutter-out-horizontal principal__botones__boton">MENÚ</a>
+                        <a href="./index.html#about" class="hvr-shutter-out-horizontal principal__botones__boton">ABOUT</a>
+                        <a href="./index.html#menu" class="hvr-shutter-out-horizontal principal__botones__boton">MENÚ</a>
                     </div>
                 </div>
     
@@ -132,7 +132,7 @@
                         <span class="total-precio">0</span>
                     </div>
     
-                    <button class="btn tercera__grid__total__boton">Comprar</button>
+                    <button class="btn tercera__grid__total__boton" id="compra-total">Comprar</button>
     
                 </div>
     
@@ -143,19 +143,44 @@
         <section class="footer">
     
             <div class="section footer__grid">
-                
                 <p>Copyright &copy; 2023 Sabor y Sazón Restaurant</p>
-    
             </div>
     
         </section>
 
-    </div>
+    </article>
 
+    <!-- FORMULARIO DE COMPRA -->
+    <section class="formulario-container">
+
+        <form class="formulario">
+
+            <button class="formulario__cerrar" id="btn-cerrar"><img src="./assets/icons/close.png" alt=""></button>
+
+            <h3 class="title title--white" id="formulario-titulo">¿ Que deseas Hoy ?</h3>
+
+            <div class="formulario__pregunta" id="formulario__render">
+
+                <label for="opcion-1" class="formulario__opcion__text">
+                    ¿ Reservar Una Cita ?
+                    <input type="checkbox" name="opcion-1" class="formulario__opcion">
+                </label>
+    
+                <label for="opcion-2" class="formulario__opcion__text">
+                    ¿ Hacer un Pedido ?
+                    <input type="checkbox" name="opcion-2" class="formulario__opcion">
+                </label>
+
+            </div>
+
+        </form>
+
+    </section>
 
     <!-- CSS.animate -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/animate.js"></script>
+    <!-- JS DE LA APLICACION  -->
     <script src="./js/platillos.js"></script>
     <script type="module" src="./js/carrito.js"></script>
 </body>

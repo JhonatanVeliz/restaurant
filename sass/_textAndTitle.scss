@@ -7,6 +7,11 @@
     font-family: v.$font-secundary;
     font-size: 4rem;
 
+    &--white{
+        color: v.$color-white;
+        text-align: center;
+    }
+
     &__border-violet {
         border-bottom: 5px solid v.$color-violet;
     }
