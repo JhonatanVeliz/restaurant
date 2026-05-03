@@ -120,7 +120,7 @@ class Producto {
     }
 
     static quitarUnoMas(id, precio) {
-        // -1-1-1212-12-12-121-212-12-1-21-21-21-21-21-21-21-2-12-12-12-12-12
+        
         const cardProductoCantidad = document.querySelector(`[data-cantidad-producto="${id}"]`);
         cardProductoCantidad.innerText = Number(cardProductoCantidad.innerText) - 1;
         const productoItems = document.querySelectorAll(`[data-item="${id}"]`);
@@ -409,12 +409,28 @@ const barraCarga = () => {
     }, 50);
 }
 
+const carritoVacioModal = document.querySelector(".carritoVacio");
+const carritoVacioModalCerrar = document.querySelector(".carritoVacio__mensaje__exit");
+
 btnCompraTotal.addEventListener('click', () => {
     const total = sumaTotal[1].innerText;
 
-    if(total == 0){return};
+    if(total.slice(-1) == 0){
+        carritoVacioModal.classList.add("carritoVacio__mostrar");
+        const body = document.querySelector("body")
+        body.style.overflowY = "hidden"
+        return
+    };
+
     formularioContainer.classList.add('formulario-container-visibled');
     funcionesCheckBoxs(checkBoxs);
+})
+
+carritoVacioModalCerrar.addEventListener('click',  () => {
+    carritoVacioModal.classList.remove("carritoVacio__mostrar");
+    
+    const body = document.querySelector("body")
+    body.style.overflowY = "scroll"
 })
 
 btnCerrar.addEventListener('click', () => {

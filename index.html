@@ -143,10 +143,33 @@
         <section class="footer">
     
             <div class="section footer__grid">
-                <p>Copyright &copy; 2023 Sabor y Sazón Restaurant</p>
+                <p>Copyright &copy;
+                    <span class="footer__grid__date">
+                        2023
+                    </span>
+                    Sabor y Sazón Restaurant
+                </p>
             </div>
     
         </section>
+
+    </article>
+
+    <article class="carritoVacio">
+
+        <div class="carritoVacio__mensaje">
+
+            <h1 class="carritoVacio__mensaje__title">Ups! <br> parece que el carrito esta vacío...</h1>
+
+            <p class="carritoVacio__mensaje__text">
+                Comienza añadiendo productos al carrito para poder proceder con tu compra
+            </p>
+
+            <button class="btn carritoVacio__mensaje__exit">
+                Aceptar
+            </button>
+
+        </div>
 
     </article>
 
@@ -180,9 +203,11 @@
     <!-- CSS.animate -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/animate.js"></script>
+
     <!-- JS DE LA APLICACION  -->
     <script src="./js/platillos.js"></script>
     <script type="module" src="./js/carrito.js"></script>
+    <script type="module" src="./js/date.js"></script>
 </body>
 
 </html>

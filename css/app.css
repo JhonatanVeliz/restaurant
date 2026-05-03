@@ -693,4 +693,71 @@ body {
   display: inline-block;
 }
 
+.carritoVacio{
+  position: fixed;
+  z-index: 100;
+  background-color: #024f65;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.carritoVacio__mostrar{
+  display: flex;
+}
+
+.carritoVacio__mensaje{
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  font-family: "poppins";
+  color: #747474fc;
+  background-color: #ededed;
+  border-radius: 2rem;
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: mostrarCarritoVacio .5s linear;
+  transition: .3s;
+  padding: 3.5rem;
+}
+
+@keyframes mostrarCarritoVacio {
+  0%{
+    opacity: 0;
+    transform: scale(1.3);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.carritoVacio__mensaje__title{
+  font-size: 4rem;
+  text-align: center;
+  color: #694bff;
+}
+
+.carritoVacio__mensaje__text{
+  font-size: 1.9rem;
+}
+
+.carritoVacio__mensaje__exit{
+  background-color: #f45123;
+  padding: 1.5rem 2.5rem;
+  border-radius: .5rem;
+  color: #ededed;
+  position: absolute;
+  bottom: 4rem;
+  right: 8rem;
+}
+
 /*# sourceMappingURL=app.css.map */
