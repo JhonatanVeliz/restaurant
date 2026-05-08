@@ -693,71 +693,82 @@ body {
   display: inline-block;
 }
 
-.carritoVacio{
-  position: fixed;
-  z-index: 100;
-  background-color: #024f65;
+.carritoVacio {
   display: none;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  left: 0;
-  top: 0;
 }
 
-.carritoVacio__mostrar{
-  display: flex;
-}
-
-.carritoVacio__mensaje{
-  width: 80%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  font-family: "poppins";
-  color: #747474fc;
+.carritoVacio--mostrar {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 32rem;
+  height: 7.5rem;
   background-color: #ededed;
-  border-radius: 2rem;
-  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);
-  position: relative;
-  animation: mostrarCarritoVacio .5s linear;
-  transition: .3s;
-  padding: 3.5rem;
+  box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.15);
+  display: grid;
+  place-items: center;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  animation: aparecerCarrito 0.5s ease;
 }
-
-@keyframes mostrarCarritoVacio {
-  0%{
-    opacity: 0;
-    transform: scale(1.3);
-  }
-  100%{
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.carritoVacio__mensaje__title{
-  font-size: 4rem;
-  text-align: center;
-  color: #694bff;
-}
-
-.carritoVacio__mensaje__text{
-  font-size: 1.9rem;
-}
-
-.carritoVacio__mensaje__exit{
-  background-color: #f45123;
-  padding: 1.5rem 2.5rem;
-  border-radius: .5rem;
-  color: #ededed;
+.carritoVacio--mostrar::before {
   position: absolute;
-  bottom: 4rem;
-  right: 8rem;
+  content: "";
+  background-color: #a60a0a;
+  width: 0.5rem;
+  height: 100%;
+  left: 0;
+}
+.carritoVacio--mostrar::after {
+  position: absolute;
+  content: "";
+  background-color: #a60a0a;
+  width: 100%;
+  height: 0.5rem;
+  bottom: 0;
+  animation: aparecerCarritoLoader 2.5s ease forwards 0.7s;
+}
+.carritoVacio--mostrar__mensaje {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-family: "poppins";
+  color: #0c0c0c;
+}
+.carritoVacio--mostrar__mensaje__exit {
+  color: #ededed;
+  background-color: #0c0c0c;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+}
+.carritoVacio--mostrar__img {
+  width: 3rem !important;
+}
+
+@keyframes aparecerCarrito {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes aparecerCarritoLoader {
+  0% {
+    left: 0;
+  }
+  80% {
+    left: 100%;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

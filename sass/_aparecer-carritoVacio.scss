@@ -1,0 +1,85 @@
+@use 'variables' as v;
+
+.carritoVacio{
+    display: none;
+}
+
+.carritoVacio--mostrar{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 32rem;
+    height: 7.5rem;
+    background-color: v.$color-white;
+    box-shadow: 1px 7px 14px -5px rgba(0,0,0, .15);
+    display: grid;
+    place-items: center;
+    border-radius: .5rem;
+    overflow: hidden;
+    animation: aparecerCarrito .5s ease;
+
+    &::before{
+        position: absolute;
+        content: "";
+        background-color: v.$color-red;
+        width: .5rem;
+        height: 100%;
+        left: 0;
+    }
+    &::after{
+        position: absolute;
+        content: "";
+        background-color: v.$color-red;
+        width: 100%;
+        height: .5rem;
+        bottom: 0;
+        animation: aparecerCarritoLoader 2.5s ease forwards .7s;
+    }
+    &__mensaje{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        font-family: v.$font-secundary;
+        color: v.$color-black;
+        &__exit{
+            color: v.$color-white;
+            background-color: v.$color-black;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+    &__img{
+        width: 3rem !important;
+    }
+}
+
+@keyframes aparecerCarrito{
+    0%{
+        transform: translateX(+100%);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes aparecerCarritoLoader{
+    0%{
+        left: 0;
+    }
+
+    80%{
+        left: 100%;
+    }
+
+    90%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}

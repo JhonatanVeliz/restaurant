@@ -409,16 +409,12 @@ const barraCarga = () => {
     }, 50);
 }
 
-const carritoVacioModal = document.querySelector(".carritoVacio");
-const carritoVacioModalCerrar = document.querySelector(".carritoVacio__mensaje__exit");
 
 btnCompraTotal.addEventListener('click', () => {
     const total = sumaTotal[1].innerText;
 
     if(total.slice(-1) == 0){
-        carritoVacioModal.classList.add("carritoVacio__mostrar");
-        const body = document.querySelector("body")
-        body.style.overflowY = "hidden"
+        mostrarMensajeErrorCarrito();
         return
     };
 
@@ -426,12 +422,14 @@ btnCompraTotal.addEventListener('click', () => {
     funcionesCheckBoxs(checkBoxs);
 })
 
-carritoVacioModalCerrar.addEventListener('click',  () => {
-    carritoVacioModal.classList.remove("carritoVacio__mostrar");
-    
-    const body = document.querySelector("body")
-    body.style.overflowY = "scroll"
-})
+const mostrarMensajeErrorCarrito = () => {
+    const carritoVacioModal = document.querySelector(".carritoVacio");
+    carritoVacioModal.classList.add("carritoVacio--mostrar");
+
+    setTimeout( () => {
+        carritoVacioModal.classList.remove("carritoVacio--mostrar");
+    }, 2500)
+}
 
 btnCerrar.addEventListener('click', () => {
     formularioContainer.classList.remove('formulario-container-visibled');

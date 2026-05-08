@@ -1,15 +1,36 @@
 {
   "name": "comedor",
   "version": "1.0.0",
-  "description": "",
+  "description": "aplicacion web de restaurante: una web donde los usuarios podrán comprar diferentes comidas del restaurante.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "sass --watch ./sass/index.scss:./css/app.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "sass": "^1.64.2"
-  }
+    "sass": "^1.99.0"
+  },
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "detect-libc": "^2.1.2",
+    "immutable": "^5.1.5",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "node-addon-api": "^7.1.1",
+    "picomatch": "^4.0.4",
+    "readdirp": "^4.1.2",
+    "source-map-js": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JhonatanVeliz/restaurant.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JhonatanVeliz/restaurant/issues"
+  },
+  "homepage": "https://github.com/JhonatanVeliz/restaurant#readme"
 }
