@@ -413,7 +413,9 @@ const barraCarga = () => {
 btnCompraTotal.addEventListener('click', () => {
     const total = sumaTotal[1].innerText;
 
-    if(total.slice(-1) == 0){
+    const verificarTotal = total.slice(-2).trim()
+
+    if(Number(verificarTotal + verificarTotal) == 0){
         mostrarMensajeErrorCarrito();
         return
     };
